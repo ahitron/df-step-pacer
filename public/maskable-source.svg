@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Full bleed background — no rounded corners, for Android adaptive icon masking -->
+  <rect width="32" height="32" fill="#F5F1EA"/>
+  <!-- Bars scaled to fit within the inner 80% safe zone (x 3.2–28.8, y 3.2–28.8) -->
+  <rect x="5"  y="17.5" width="5.5" height="10" rx="1.5" fill="#D2C7B5"/>
+  <rect x="13" y="11"   width="5.5" height="16.5" rx="1.5" fill="#C49A3B"/>
+  <rect x="21" y="5"    width="5.5" height="22.5" rx="1.5" fill="#B8593A"/>
+</svg>
