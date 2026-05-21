@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Spacing — Shadows</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  .item{text-align:center;}
+  .box{background:var(--df-surface);border:1px solid var(--df-line);border-radius:10px;width:100%;height:78px;}
+  .lbl{font-family:var(--df-font-mono);font-size:10px;color:var(--df-ink-3);margin-top:10px;line-height:1.4;}
+  .lbl strong{color:var(--df-ink);font-weight:500;font-family:var(--df-font-sans);display:block;}
+</style>
+<div class="row">
+  <div class="item"><div class="box" style="box-shadow:var(--df-shadow-xs)"></div><div class="lbl"><strong>xs</strong>hairline</div></div>
+  <div class="item"><div class="box" style="box-shadow:var(--df-shadow-sm)"></div><div class="lbl"><strong>sm</strong>resting card</div></div>
+  <div class="item"><div class="box" style="box-shadow:var(--df-shadow-md)"></div><div class="lbl"><strong>md</strong>hover / lifted</div></div>
+  <div class="item"><div class="box" style="box-shadow:var(--df-shadow-lg)"></div><div class="lbl"><strong>lg</strong>modal / popover</div></div>
+  <div class="item"><div class="box" style="box-shadow:var(--df-shadow-inset)"></div><div class="lbl"><strong>inset</strong>pressed</div></div>
+</div></div></body></html>

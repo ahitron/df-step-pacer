@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Brand — Voice</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .cell{background:var(--df-surface);border:1px solid var(--df-line);border-radius:10px;padding:14px 16px;}
+  .tag{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;margin-bottom:8px;display:inline-flex;align-items:center;gap:6px;}
+  .tag.yes{color:#3F5532;}
+  .tag.no{color:#7C2E22;}
+  .tag::before{content:"";width:5px;height:5px;border-radius:999px;display:inline-block;}
+  .yes::before{background:#6B8E5A;}
+  .no::before{background:#B14F40;}
+  .line{font-family:var(--df-font-sans);font-weight:400;font-size:20px;line-height:1.3;color:var(--df-ink);letter-spacing:-0.015em;}
+  .line + .line{margin-top:10px;}
+  .small{font-size:13px;font-family:var(--df-font-sans);color:var(--df-ink-2);line-height:1.5;margin-top:8px;}
+  .small + .small{margin-top:6px;}
+</style>
+<div class="grid">
+  <div class="cell">
+    <div class="tag yes">in voice</div>
+    <div class="line">"Welcome back. 2 logs waiting."</div>
+    <div class="small">"You've slept 6 h 48 m on average this week."</div>
+    <div class="small">"Nothing logged yesterday — want to add now?"</div>
+  </div>
+  <div class="cell">
+    <div class="tag no">off voice</div>
+    <div class="line">"Hi, User! Let's get productive!"</div>
+    <div class="small">"Sleep performance is trending negative."</div>
+    <div class="small">"Missing data detected. Please input values."</div>
+  </div>
+</div></div></body></html>

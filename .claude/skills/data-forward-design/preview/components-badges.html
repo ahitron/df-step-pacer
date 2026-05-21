@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Components — Badges</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+  .row + .row{margin-top:14px;}
+  .badge{display:inline-flex;align-items:center;gap:6px;height:22px;padding:0 10px;border-radius:999px;font-size:11px;font-weight:500;letter-spacing:0.01em;}
+  .badge.clay{background:var(--df-clay-tint);color:#8D3E27;}
+  .badge.sage{background:#DDE5D0;color:#3F5532;}
+  .badge.ochre{background:#EFE0BC;color:#7A5E1E;}
+  .badge.rust{background:#EDD0CB;color:#7C2E22;}
+  .badge.teal{background:#D2DEDE;color:#2F4F4F;}
+  .badge.neutral{background:var(--df-surface-2);color:var(--df-ink-2);}
+  .badge .dot{width:6px;height:6px;border-radius:999px;}
+  .lbl{font-family:var(--df-font-mono);font-size:10px;color:var(--df-ink-3);margin-bottom:6px;text-transform:lowercase;letter-spacing:0.04em;}
+</style>
+<div class="lbl">status badges</div>
+<div class="row">
+  <span class="badge sage"><span class="dot" style="background:#6B8E5A"></span>on track</span>
+  <span class="badge ochre"><span class="dot" style="background:#C49A3B"></span>watch</span>
+  <span class="badge rust"><span class="dot" style="background:#B14F40"></span>over budget</span>
+  <span class="badge teal"><span class="dot" style="background:#527A7A"></span>logged</span>
+  <span class="badge neutral">draft</span>
+</div>
+<div class="lbl" style="margin-top:14px">tags / chips</div>
+<div class="row">
+  <span class="badge clay">sleep</span>
+  <span class="badge clay">weight</span>
+  <span class="badge clay">spend</span>
+  <span class="badge clay">reading</span>
+  <span class="badge clay">+ 3 more</span>
+</div></div></body></html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Spacing — In use</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .demo{background:var(--df-surface);border:1px solid var(--df-line);border-radius:10px;box-shadow:var(--df-shadow-sm);overflow:hidden;}
+  .pad{padding:20px 24px;position:relative;}
+  .pad::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent 0 6px, rgba(184,89,58,0.06) 6px 7px);pointer-events:none;}
+  .lbl{font-size:11px;color:var(--df-ink-3);text-transform:uppercase;letter-spacing:0.08em;font-weight:500;}
+  .title{font-family:var(--df-font-sans);font-size:17px;font-weight:500;margin-top:4px;color:var(--df-ink);}
+  .body{font-size:13px;color:var(--df-ink-2);margin-top:8px;line-height:1.5;max-width:480px;}
+  .actions{display:flex;gap:8px;margin-top:16px;}
+  .btn{height:32px;padding:0 14px;border-radius:6px;border:1px solid var(--df-line);background:var(--df-surface);font-size:13px;color:var(--df-ink);}
+  .btn.primary{background:var(--df-clay);color:var(--df-ink-inverse);border-color:var(--df-clay);}
+  .anno{position:absolute;font-family:var(--df-font-mono);font-size:10px;color:var(--df-clay);background:var(--df-clay-tint);padding:2px 6px;border-radius:4px;}
+</style>
+<div class="demo">
+  <div class="pad">
+    <div class="lbl">Weight log</div>
+    <div class="title">Add an entry for today</div>
+    <div class="body">A short note next to the number helps you remember why the morning was unusual.</div>
+    <div class="actions">
+      <button class="btn primary">Add entry</button>
+      <button class="btn">Cancel</button>
+    </div>
+    <span class="anno" style="top:8px;right:8px">padding 20 × 24</span>
+    <span class="anno" style="bottom:8px;right:8px">gap 8 · margin 16</span>
+  </div>
+</div></div></body></html>

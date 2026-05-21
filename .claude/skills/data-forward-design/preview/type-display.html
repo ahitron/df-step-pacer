@@ -1,0 +1,56 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Type — Display</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:24px 26px;}
+  .display{
+    font-family: var(--df-font-sans);
+    font-weight: 300;
+    font-size: 76px;
+    line-height: 0.98;
+    letter-spacing: -0.005em;
+    color: var(--df-ink);
+  }
+  .display .accent{ color: var(--df-clay); }
+  .nums{
+    margin-top:18px;
+    display:flex;
+    align-items:baseline;
+    gap:28px;
+  }
+  .nums .n{
+    font-family: var(--df-font-sans);
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--df-ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .nums .n .unit{
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--df-ink-3);
+    letter-spacing: 0;
+    margin-left: 4px;
+    vertical-align: 4px;
+  }
+  .meta{display:flex;gap:24px;margin-top:18px;color:var(--df-ink-3);font-size:11px;font-family:var(--df-font-mono);letter-spacing:-0.01em;}
+  .meta strong{color:var(--df-ink);font-weight:500;font-family:var(--df-font-sans);}
+</style></head>
+<body>
+<div class="wrap">
+  <div class="display">Data <span class="accent">Forward</span></div>
+  <div class="nums">
+    <div class="n">168.4<span class="unit">lb</span></div>
+    <div class="n">6:48<span class="unit">h:m</span></div>
+    <div class="n">$1,284</div>
+  </div>
+  <div class="meta">
+    <span><strong>Geist</strong> · light 300</span>
+    <span>display 44–84 px · tracking −0.5 %</span>
+    <span>tabular numerals</span>
+  </div>
+</div>
+</body></html>

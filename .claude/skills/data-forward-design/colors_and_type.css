@@ -1,0 +1,354 @@
+/* ==========================================================================
+   Data Forward — Color & Type Foundations
+   --------------------------------------------------------------------------
+   Warm, modern, subtle. Paper-like surfaces, warm ink, a single clay accent.
+   Fonts loaded from Google Fonts (no local files yet — see README caveat).
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap");
+
+:root {
+  /* ----- Color: surfaces / canvas ----------------------------------------- */
+  --df-canvas:        #F5F1EA;   /* warm paper — page background */
+  --df-canvas-translucent: rgba(245, 241, 234, 0.82);  /* sticky chrome */
+  --df-surface:       #FBF8F2;   /* lifted surface — cards, panels */
+  --df-surface-2:     #EFE8DB;   /* recessed — wells, code, subtle tracks */
+  --df-overlay:       rgba(42, 38, 32, 0.45); /* modal scrim */
+
+  /* ----- Color: ink (foreground) ------------------------------------------ */
+  --df-ink:           #2A2620;   /* primary text — warm near-black */
+  --df-ink-2:         #5C544A;   /* secondary text, labels */
+  --df-ink-3:         #8F857A;   /* tertiary, captions, placeholders */
+  --df-ink-4:         #B8AE9F;   /* disabled / very low emphasis */
+  --df-ink-inverse:   #FBF8F2;   /* text on dark / accent fills */
+
+  /* ----- Color: lines / dividers ----------------------------------------- */
+  --df-line:          #E5DDD0;   /* default border */
+  --df-line-strong:   #D2C7B5;   /* emphasized border */
+  --df-line-soft:     rgba(42, 38, 32, 0.06);
+
+  /* ----- "On color" text/icon tokens (theme-aware) ------------------------ */
+  /*
+     Use these whenever you put text on top of one of the soft/tint
+     backgrounds — so the foreground can flip in dark mode.
+  */
+  --df-on-clay-tint:  #8D3E27;   /* text/icon on --df-clay-tint background */
+  --df-on-clay-soft:  #8D3E27;   /* text/icon on --df-clay-soft background */
+
+  /* ----- Color: brand accent — clay --------------------------------------- */
+  --df-clay:          #B8593A;   /* primary accent */
+  --df-clay-hover:    #A24B30;
+  --df-clay-press:    #8D3E27;
+  --df-clay-soft:     #E8C9B8;   /* tinted bg / chip */
+  --df-clay-tint:     #F3DDCE;   /* very faint wash */
+
+  /* ----- Color: semantic --------------------------------------------------- */
+  --df-success:       #6B8E5A;   /* sage */
+  --df-success-soft:  #DDE5D0;
+  --df-warning:       #C49A3B;   /* ochre */
+  --df-warning-soft:  #EFE0BC;
+  --df-danger:        #B14F40;   /* rust */
+  --df-danger-soft:   #EDD0CB;
+  --df-info:          #527A7A;   /* dusty teal */
+  --df-info-soft:     #D2DEDE;
+
+  /* ----- Color: data viz palette (categorical, warm-leaning) -------------- */
+  --df-data-1:        #B8593A;   /* clay */
+  --df-data-2:        #C49A3B;   /* ochre */
+  --df-data-3:        #6B8E5A;   /* sage */
+  --df-data-4:        #527A7A;   /* teal */
+  --df-data-5:        #8E6B83;   /* mauve */
+  --df-data-6:        #9B8B7A;   /* stone */
+  --df-data-7:        #3F4A52;   /* slate */
+  --df-data-8:        #D9A77C;   /* tan */
+
+  /* ----- Type: families --------------------------------------------------- */
+  --df-font-sans:     "Geist", ui-sans-serif, system-ui, sans-serif;
+  --df-font-mono:     "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ----- Type: scale (modular, 1.2 minor third) --------------------------- */
+  --df-text-xs:       11px;
+  --df-text-sm:       13px;
+  --df-text-base:     15px;
+  --df-text-md:       17px;
+  --df-text-lg:       20px;
+  --df-text-xl:       24px;
+  --df-text-2xl:      32px;
+  --df-text-3xl:      44px;
+  --df-text-4xl:      60px;
+  --df-text-5xl:      84px;
+
+  /* ----- Type: weight + tracking + leading -------------------------------- */
+  --df-weight-light:   300;
+  --df-weight-regular: 400;
+  --df-weight-medium:  500;
+  --df-weight-semibold:600;
+  --df-weight-bold:    700;
+
+  --df-tracking-tight: -0.02em;
+  --df-tracking-snug:  -0.01em;
+  --df-tracking-normal: 0em;
+  --df-tracking-wide:  0.04em;
+  --df-tracking-caps:  0.08em;
+
+  --df-leading-tight:  1.1;
+  --df-leading-snug:   1.25;
+  --df-leading-normal: 1.5;
+  --df-leading-relaxed:1.7;
+
+  /* ----- Spacing scale (4px base) ----------------------------------------- */
+  --df-space-1:  4px;
+  --df-space-2:  8px;
+  --df-space-3:  12px;
+  --df-space-4:  16px;
+  --df-space-5:  20px;
+  --df-space-6:  24px;
+  --df-space-8:  32px;
+  --df-space-10: 40px;
+  --df-space-12: 48px;
+  --df-space-16: 64px;
+  --df-space-20: 80px;
+
+  /* ----- Radii ------------------------------------------------------------ */
+  --df-radius-xs: 4px;
+  --df-radius-sm: 6px;
+  --df-radius-md: 10px;
+  --df-radius-lg: 14px;
+  --df-radius-xl: 20px;
+  --df-radius-2xl: 28px;
+  --df-radius-pill: 999px;
+
+  /* ----- Shadow (low-key, warm-toned) ------------------------------------- */
+  --df-shadow-xs:  0 1px 0 rgba(42, 38, 32, 0.04);
+  --df-shadow-sm:  0 1px 2px rgba(42, 38, 32, 0.06),
+                   0 1px 1px rgba(42, 38, 32, 0.04);
+  --df-shadow-md:  0 4px 12px -2px rgba(42, 38, 32, 0.08),
+                   0 2px 4px -1px rgba(42, 38, 32, 0.05);
+  --df-shadow-lg:  0 16px 32px -8px rgba(42, 38, 32, 0.12),
+                   0 4px 8px -2px rgba(42, 38, 32, 0.06);
+  --df-shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                    inset 0 0 0 1px rgba(42, 38, 32, 0.04);
+
+  /* ----- Motion ----------------------------------------------------------- */
+  --df-ease-out:     cubic-bezier(0.2, 0.7, 0.2, 1);
+  --df-ease-in-out:  cubic-bezier(0.5, 0, 0.2, 1);
+  --df-dur-fast:     120ms;
+  --df-dur-base:     200ms;
+  --df-dur-slow:     360ms;
+}
+
+/* ==========================================================================
+   Semantic typography classes
+   --------------------------------------------------------------------------
+   Use these directly on elements; or compose your own with the vars above.
+   ========================================================================== */
+
+.df-display {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-light);
+  font-size:   var(--df-text-5xl);
+  line-height: 0.98;
+  letter-spacing: -0.005em;
+  color: var(--df-ink);
+}
+
+.df-h1 {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-light);
+  font-size:   var(--df-text-4xl);
+  line-height: var(--df-leading-tight);
+  letter-spacing: -0.015em;
+  color: var(--df-ink);
+}
+
+.df-h2 {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-regular);
+  font-size:   var(--df-text-3xl);
+  line-height: var(--df-leading-snug);
+  letter-spacing: -0.015em;
+  color: var(--df-ink);
+}
+
+.df-h3 {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-medium);
+  font-size:   var(--df-text-xl);
+  line-height: var(--df-leading-snug);
+  letter-spacing: var(--df-tracking-snug);
+  color: var(--df-ink);
+}
+
+.df-h4 {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-medium);
+  font-size:   var(--df-text-lg);
+  line-height: var(--df-leading-snug);
+  color: var(--df-ink);
+}
+
+.df-eyebrow {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-medium);
+  font-size:   var(--df-text-xs);
+  letter-spacing: var(--df-tracking-caps);
+  text-transform: uppercase;
+  color: var(--df-ink-3);
+}
+
+.df-body {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-regular);
+  font-size:   var(--df-text-base);
+  line-height: var(--df-leading-normal);
+  color: var(--df-ink);
+}
+
+.df-body-lg {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-regular);
+  font-size:   var(--df-text-md);
+  line-height: var(--df-leading-relaxed);
+  color: var(--df-ink);
+}
+
+.df-small {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-regular);
+  font-size:   var(--df-text-sm);
+  line-height: var(--df-leading-normal);
+  color: var(--df-ink-2);
+}
+
+.df-caption {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-regular);
+  font-size:   var(--df-text-xs);
+  line-height: var(--df-leading-normal);
+  color: var(--df-ink-3);
+}
+
+.df-label {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-medium);
+  font-size:   var(--df-text-sm);
+  line-height: var(--df-leading-snug);
+  color: var(--df-ink-2);
+}
+
+.df-numeric {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-medium);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "ss01", "tnum";
+}
+
+.df-numeric-display {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-light);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.015em;
+  color: var(--df-ink);
+}
+
+.df-mono {
+  font-family: var(--df-font-mono);
+  font-size:   var(--df-text-sm);
+  line-height: var(--df-leading-normal);
+  color: var(--df-ink-2);
+}
+
+.df-code {
+  font-family: var(--df-font-mono);
+  font-size:   0.9em;
+  background: var(--df-surface-2);
+  border-radius: var(--df-radius-xs);
+  padding: 0.1em 0.35em;
+  color: var(--df-ink);
+}
+
+/* ==========================================================================
+   Element-level base (opt-in)
+   ========================================================================== */
+.df-reset { font-family: var(--df-font-sans); color: var(--df-ink); background: var(--df-canvas); }
+.df-reset h1 { all: unset; }
+
+/* ==========================================================================
+   Dark mode — opt in with <html data-theme="dark"> or <body data-theme="dark">
+   --------------------------------------------------------------------------
+   Warm dark, not pitch black. Think coffee-stained leather notebook in low
+   light. Surfaces step UP in tone (canvas is darkest); ink is warm cream.
+   Clay brightens slightly so it still feels alive on the dark canvas.
+   ========================================================================== */
+
+[data-theme="dark"] {
+  /* Surfaces — warm dark, stepping up to indicate elevation */
+  --df-canvas:        #1A1714;   /* deepest — page background */
+  --df-canvas-translucent: rgba(26, 23, 20, 0.82);
+  --df-surface:       #221E1A;   /* lifted surface — cards, panels */
+  --df-surface-2:     #2B2620;   /* recessed wells, code spans */
+  --df-overlay:       rgba(8, 6, 4, 0.65);
+
+  /* Ink — warm cream foreground */
+  --df-ink:           #F3EBDD;
+  --df-ink-2:         #C4B8A4;
+  --df-ink-3:         #8F857A;
+  --df-ink-4:         #5C544A;
+  --df-ink-inverse:   #1A1714;   /* dark text on light/accent fills */
+
+  /* Lines */
+  --df-line:          #3A332B;
+  --df-line-strong:   #4D443A;
+  --df-line-soft:     rgba(255, 240, 220, 0.05);
+
+  /* Clay accent — brightened for dark backgrounds */
+  --df-clay:          #D67651;
+  --df-clay-hover:    #E08561;
+  --df-clay-press:    #BE6644;
+  --df-clay-soft:     rgba(214, 118, 81, 0.22);  /* dark tint that reads */
+  --df-clay-tint:     rgba(214, 118, 81, 0.14);
+
+  /* "On color" tokens — text on dark clay tints stays clay, lifted */
+  --df-on-clay-tint:  #E8987A;
+  --df-on-clay-soft:  #E8987A;
+
+  /* Semantic — slightly brighter */
+  --df-success:       #8FAE7A;
+  --df-success-soft:  rgba(143, 174, 122, 0.18);
+  --df-warning:       #DDB257;
+  --df-warning-soft:  rgba(221, 178, 87, 0.18);
+  --df-danger:        #D06A5C;
+  --df-danger-soft:   rgba(208, 106, 92, 0.18);
+  --df-info:          #76A0A0;
+  --df-info-soft:     rgba(118, 160, 160, 0.18);
+
+  /* Data viz — brightened for dark backgrounds */
+  --df-data-1:        #D67651;
+  --df-data-2:        #DDB257;
+  --df-data-3:        #8FAE7A;
+  --df-data-4:        #76A0A0;
+  --df-data-5:        #B695A7;
+  --df-data-6:        #B4A593;
+  --df-data-7:        #7B8893;
+  --df-data-8:        #E8B690;
+
+  /* Shadows — dark mode uses subtle highlights, not big shadows.
+     We still render box-shadow but with very low opacity. The border
+     itself does most of the elevation work. */
+  --df-shadow-xs:  0 1px 0 rgba(0, 0, 0, 0.3);
+  --df-shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.35),
+                   0 1px 1px rgba(0, 0, 0, 0.25);
+  --df-shadow-md:  0 4px 12px -2px rgba(0, 0, 0, 0.45),
+                   0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --df-shadow-lg:  0 16px 32px -8px rgba(0, 0, 0, 0.55),
+                   0 4px 8px -2px rgba(0, 0, 0, 0.35);
+  --df-shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04),
+                     inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+/* Soft cross-fade when the theme switches (toggle UX) */
+[data-theme] body,
+[data-theme] {
+  transition: background-color 240ms var(--df-ease-out),
+              color 240ms var(--df-ease-out);
+}

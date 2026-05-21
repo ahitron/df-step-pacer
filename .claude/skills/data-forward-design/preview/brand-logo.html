@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Brand — Logo</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;align-items:stretch;}
+  .cell{background:var(--df-surface);border:1px solid var(--df-line);border-radius:10px;padding:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-height:130px;}
+  .cell.dark{background:#2A2620;border-color:#2A2620;}
+  .cell img{height:48px;}
+  .lbl{font-family:var(--df-font-mono);font-size:10px;color:var(--df-ink-3);}
+  .cell.dark .lbl{color:#B8AE9F;}
+</style>
+<div class="grid">
+  <div class="cell">
+    <img src="../assets/logo.svg" alt="Data Forward mark">
+    <div class="lbl">primary mark · on canvas</div>
+  </div>
+  <div class="cell">
+    <img src="../assets/wordmark.svg" alt="Data Forward wordmark" style="height:48px">
+    <div class="lbl">wordmark · Geist 300 + clay</div>
+  </div>
+  <div class="cell dark">
+    <img src="../assets/logo.svg" alt="Data Forward mark">
+    <div class="lbl">primary mark · on ink</div>
+  </div>
+</div></div></body></html>

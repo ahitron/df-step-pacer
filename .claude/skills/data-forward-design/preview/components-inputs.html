@@ -1,0 +1,47 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Components — Inputs</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .lbl{font-size:12px;font-weight:500;color:var(--df-ink-2);}
+  .hint{font-size:11px;color:var(--df-ink-3);}
+  .input{height:36px;padding:0 12px;border:1px solid var(--df-line-strong);background:var(--df-surface);border-radius:6px;font-size:14px;font-family:var(--df-font-sans);color:var(--df-ink);outline:none;}
+  .input:focus{border-color:var(--df-clay);box-shadow:0 0 0 3px rgba(184,89,58,0.18);}
+  .input.unit{padding-right:44px;}
+  .wrap2{position:relative;}
+  .wrap2 .u{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--df-ink-3);font-family:var(--df-font-mono);}
+  .select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--df-ink-3) 50%),linear-gradient(135deg,var(--df-ink-3) 50%,transparent 50%);background-position:calc(100% - 16px) 14px,calc(100% - 11px) 14px;background-size:5px 5px;background-repeat:no-repeat;}
+  .check{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--df-ink);}
+  .check .b{width:16px;height:16px;border-radius:4px;border:1.5px solid var(--df-line-strong);background:var(--df-surface);display:inline-flex;align-items:center;justify-content:center;}
+  .check.checked .b{background:var(--df-clay);border-color:var(--df-clay);}
+  .check.checked .b svg{stroke:#FBF8F2;}
+  svg{width:10px;height:10px;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<div class="grid">
+  <div class="field">
+    <label class="lbl">Weight today</label>
+    <div class="wrap2"><input class="input unit" value="168.4"><span class="u">lb</span></div>
+  </div>
+  <div class="field">
+    <label class="lbl">Measured at</label>
+    <input class="input" value="07:14 — after waking">
+  </div>
+  <div class="field">
+    <label class="lbl">Mood</label>
+    <select class="input select"><option>steady</option></select>
+  </div>
+  <div class="field">
+    <label class="lbl">Note <span class="hint">— optional</span></label>
+    <input class="input" placeholder="One line about the morning…">
+  </div>
+  <div class="field" style="grid-column:1 / -1;flex-direction:row;gap:18px;margin-top:2px;">
+    <span class="check checked"><span class="b"><svg viewBox="0 0 16 16"><polyline points="3 8 7 12 13 4"/></svg></span>Remind me tomorrow</span>
+    <span class="check"><span class="b"></span>Include in weekly average</span>
+  </div>
+</div></div></body></html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html data-theme="dark"><head><meta charset="utf-8"><title>Colors — Dark mode</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:20px 24px;}
+  .lbl{font-size:10px;color:var(--df-ink-3);text-transform:uppercase;letter-spacing:0.08em;font-weight:500;margin-bottom:8px;}
+  .lbl + .lbl{margin-top:14px;}
+  .row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  .sw{border-radius:8px;overflow:hidden;border:1px solid var(--df-line);background:var(--df-surface);}
+  .chip{height:50px;}
+  .meta{padding:6px 8px;font-size:10px;line-height:1.3;}
+  .name{font-weight:500;color:var(--df-ink);}
+  .hex{color:var(--df-ink-3);font-family:var(--df-font-mono);font-size:9px;}
+</style></head>
+<body>
+<div class="wrap">
+  <div class="lbl">Surfaces</div>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:#1A1714"></div><div class="meta"><div class="name">canvas</div><div class="hex">#1A1714</div></div></div>
+    <div class="sw"><div class="chip" style="background:#221E1A"></div><div class="meta"><div class="name">surface</div><div class="hex">#221E1A</div></div></div>
+    <div class="sw"><div class="chip" style="background:#2B2620"></div><div class="meta"><div class="name">surface-2</div><div class="hex">#2B2620</div></div></div>
+    <div class="sw"><div class="chip" style="background:#3A332B"></div><div class="meta"><div class="name">line</div><div class="hex">#3A332B</div></div></div>
+    <div class="sw"><div class="chip" style="background:#4D443A"></div><div class="meta"><div class="name">line-strong</div><div class="hex">#4D443A</div></div></div>
+  </div>
+
+  <div class="lbl">Ink</div>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:#F3EBDD"></div><div class="meta"><div class="name">ink</div><div class="hex">#F3EBDD</div></div></div>
+    <div class="sw"><div class="chip" style="background:#C4B8A4"></div><div class="meta"><div class="name">ink-2</div><div class="hex">#C4B8A4</div></div></div>
+    <div class="sw"><div class="chip" style="background:#8F857A"></div><div class="meta"><div class="name">ink-3</div><div class="hex">#8F857A</div></div></div>
+    <div class="sw"><div class="chip" style="background:#5C544A"></div><div class="meta"><div class="name">ink-4</div><div class="hex">#5C544A</div></div></div>
+    <div class="sw"><div class="chip" style="background:#1A1714"></div><div class="meta"><div class="name">ink-inverse</div><div class="hex">#1A1714</div></div></div>
+  </div>
+
+  <div class="lbl">Clay accent</div>
+  <div class="row">
+    <div class="sw"><div class="chip" style="background:rgba(214,118,81,0.14)"></div><div class="meta"><div class="name">clay-tint</div><div class="hex">α 0.14</div></div></div>
+    <div class="sw"><div class="chip" style="background:rgba(214,118,81,0.22)"></div><div class="meta"><div class="name">clay-soft</div><div class="hex">α 0.22</div></div></div>
+    <div class="sw"><div class="chip" style="background:#D67651"></div><div class="meta"><div class="name">clay</div><div class="hex">#D67651</div></div></div>
+    <div class="sw"><div class="chip" style="background:#E08561"></div><div class="meta"><div class="name">clay-hover</div><div class="hex">#E08561</div></div></div>
+    <div class="sw"><div class="chip" style="background:#BE6644"></div><div class="meta"><div class="name">clay-press</div><div class="hex">#BE6644</div></div></div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Colors — Semantic</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:20px 24px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .sw{border-radius:10px;overflow:hidden;border:1px solid var(--df-line);background:var(--df-surface);display:flex;}
+  .solid{width:54px;}
+  .soft{flex:1;display:flex;align-items:center;padding:0 12px;font-size:13px;}
+  .name{font-weight:500;}
+  .hex{display:block;color:var(--df-ink-3);font-family:var(--df-font-mono);font-size:11px;margin-top:2px;}
+  .row2{height:78px;}
+</style>
+<div class="row">
+  <div class="sw row2"><div class="solid" style="background:#6B8E5A"></div><div class="soft" style="background:#DDE5D0"><div><div class="name">success</div><div class="hex">#6B8E5A · sage</div></div></div></div>
+  <div class="sw row2"><div class="solid" style="background:#C49A3B"></div><div class="soft" style="background:#EFE0BC"><div><div class="name">warning</div><div class="hex">#C49A3B · ochre</div></div></div></div>
+  <div class="sw row2"><div class="solid" style="background:#B14F40"></div><div class="soft" style="background:#EDD0CB"><div><div class="name">danger</div><div class="hex">#B14F40 · rust</div></div></div></div>
+  <div class="sw row2"><div class="solid" style="background:#527A7A"></div><div class="soft" style="background:#D2DEDE"><div><div class="name">info</div><div class="hex">#527A7A · teal</div></div></div></div>
+</div></div></body></html>

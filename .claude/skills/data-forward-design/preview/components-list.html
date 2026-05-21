@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Components — List rows</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .list{background:var(--df-surface);border:1px solid var(--df-line);border-radius:10px;overflow:hidden;}
+  .row{display:grid;grid-template-columns:90px 1fr 80px 60px;gap:14px;padding:10px 16px;align-items:center;border-bottom:1px solid var(--df-line-soft);font-size:13px;}
+  .row:last-child{border-bottom:none;}
+  .row.head{background:var(--df-surface-2);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--df-ink-3);padding:8px 16px;font-weight:500;}
+  .date{font-family:var(--df-font-mono);color:var(--df-ink-2);font-size:12px;}
+  .num{font-family:var(--df-font-sans);font-variant-numeric:tabular-nums;color:var(--df-ink);font-weight:500;text-align:right;}
+  .note{color:var(--df-ink-2);}
+  .pill{display:inline-flex;align-items:center;gap:5px;padding:1px 8px;border-radius:999px;font-size:11px;font-weight:500;background:#DDE5D0;color:#3F5532;}
+  .pill .d{width:5px;height:5px;border-radius:999px;background:#6B8E5A;}
+</style>
+<div class="list">
+  <div class="row head"><div>Date</div><div>Note</div><div style="text-align:right">Weight</div><div></div></div>
+  <div class="row"><div class="date">May 21</div><div class="note">After morning walk</div><div class="num">168.4</div><div><span class="pill"><span class="d"></span>down</span></div></div>
+  <div class="row"><div class="date">May 20</div><div class="note">—</div><div class="num">168.9</div><div></div></div>
+  <div class="row"><div class="date">May 19</div><div class="note">Travel day, light dinner</div><div class="num">169.2</div><div></div></div>
+  <div class="row"><div class="date">May 18</div><div class="note">—</div><div class="num">169.0</div><div></div></div>
+</div></div></body></html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Spacing — Radii</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .row{display:flex;gap:14px;align-items:flex-end;}
+  .item{text-align:center;}
+  .box{background:var(--df-surface);border:1px solid var(--df-line);box-shadow:var(--df-shadow-sm);width:78px;height:78px;}
+  .lbl{font-family:var(--df-font-mono);font-size:10px;color:var(--df-ink-3);margin-top:8px;line-height:1.4;}
+  .lbl strong{color:var(--df-ink);font-weight:500;font-family:var(--df-font-sans);display:block;}
+</style>
+<div class="row">
+  <div class="item"><div class="box" style="border-radius:4px"></div><div class="lbl"><strong>xs</strong>4 px</div></div>
+  <div class="item"><div class="box" style="border-radius:6px"></div><div class="lbl"><strong>sm</strong>6 px</div></div>
+  <div class="item"><div class="box" style="border-radius:10px"></div><div class="lbl"><strong>md</strong>10 px</div></div>
+  <div class="item"><div class="box" style="border-radius:14px"></div><div class="lbl"><strong>lg</strong>14 px</div></div>
+  <div class="item"><div class="box" style="border-radius:20px"></div><div class="lbl"><strong>xl</strong>20 px</div></div>
+  <div class="item"><div class="box" style="border-radius:28px"></div><div class="lbl"><strong>2xl</strong>28 px</div></div>
+  <div class="item"><div class="box" style="border-radius:999px"></div><div class="lbl"><strong>pill</strong>999 px</div></div>
+</div></div></body></html>

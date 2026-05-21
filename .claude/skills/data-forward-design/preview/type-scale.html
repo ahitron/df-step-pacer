@@ -1,0 +1,28 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Type — Scale</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .scale{display:flex;flex-direction:column;gap:4px;}
+  .row{display:flex;align-items:baseline;gap:18px;color:var(--df-ink);}
+  .row .px{flex:0 0 56px;font-family:var(--df-font-mono);font-size:10px;color:var(--df-ink-3);letter-spacing:-0.01em;text-align:right;}
+  .row .lbl{flex:0 0 64px;font-size:10px;color:var(--df-ink-3);font-family:var(--df-font-mono);}
+  .row .sample{font-family:var(--df-font-sans);font-weight:500;letter-spacing:-0.01em;line-height:1.05;}
+  .row.display .sample{font-family:var(--df-font-sans);font-weight:300;letter-spacing:-0.015em;}
+</style>
+<div class="scale">
+  <div class="row display"><span class="px">84 px</span><span class="lbl">5xl</span><span class="sample" style="font-size:42px">Data Forward</span></div>
+  <div class="row display"><span class="px">60 px</span><span class="lbl">4xl</span><span class="sample" style="font-size:36px">Data Forward</span></div>
+  <div class="row display"><span class="px">44 px</span><span class="lbl">3xl</span><span class="sample" style="font-size:30px">Data Forward</span></div>
+  <div class="row"><span class="px">32 px</span><span class="lbl">2xl</span><span class="sample" style="font-size:24px">This week's averages</span></div>
+  <div class="row"><span class="px">24 px</span><span class="lbl">xl</span><span class="sample" style="font-size:20px">This week's averages</span></div>
+  <div class="row"><span class="px">20 px</span><span class="lbl">lg</span><span class="sample" style="font-size:17px">This week's averages</span></div>
+  <div class="row"><span class="px">17 px</span><span class="lbl">md</span><span class="sample" style="font-size:15px">This week's averages</span></div>
+  <div class="row"><span class="px">15 px</span><span class="lbl">base</span><span class="sample" style="font-size:14px;font-weight:400">Body copy default size</span></div>
+  <div class="row"><span class="px">13 px</span><span class="lbl">sm</span><span class="sample" style="font-size:13px;font-weight:400">Secondary text and labels</span></div>
+  <div class="row"><span class="px">11 px</span><span class="lbl">xs</span><span class="sample" style="font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:0.08em">Eyebrow caption</span></div>
+</div></div></body></html>

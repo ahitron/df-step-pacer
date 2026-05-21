@@ -1,0 +1,41 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Components — Cards</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  html,body{margin:0;padding:0;background:var(--df-canvas);font-family:var(--df-font-sans);color:var(--df-ink);}
+  .wrap{padding:22px 26px;}
+</style></head>
+<body><div class="wrap">
+<style>
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .card{background:var(--df-surface);border:1px solid var(--df-line);border-radius:10px;box-shadow:var(--df-shadow-sm);padding:14px 16px;}
+  .lbl{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--df-ink-3);font-weight:500;display:flex;align-items:center;gap:6px;}
+  .lbl svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:1.5;}
+  .big{font-family:var(--df-font-sans);font-weight:300;font-size:36px;color:var(--df-ink);letter-spacing:-0.02em;line-height:1.05;margin-top:6px;font-variant-numeric:tabular-nums;}
+  .spark{margin-top:8px;height:32px;display:flex;align-items:flex-end;gap:3px;}
+  .spark .b{flex:1;background:var(--df-clay-soft);border-radius:2px 2px 0 0;}
+  .spark .b.hi{background:var(--df-clay);}
+  .delta{margin-top:8px;font-size:11px;color:var(--df-ink-3);}
+  .delta .up{color:#6B8E5A;font-weight:500;}
+  .delta .down{color:#B14F40;font-weight:500;}
+</style>
+<div class="grid">
+  <div class="card">
+    <div class="lbl"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 1 9-9 9 9 0 0 1-9 9zm0 0a7 7 0 0 0 7-7"/></svg>Sleep</div>
+    <div class="big">6h 48m</div>
+    <div class="spark"><div class="b" style="height:52%"></div><div class="b" style="height:68%"></div><div class="b" style="height:42%"></div><div class="b hi" style="height:78%"></div><div class="b" style="height:60%"></div><div class="b" style="height:55%"></div><div class="b" style="height:62%"></div></div>
+    <div class="delta"><span class="up">↑ 22 m</span> vs last week</div>
+  </div>
+  <div class="card">
+    <div class="lbl"><svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Weight</div>
+    <div class="big">168.4</div>
+    <div class="spark"><div class="b" style="height:88%"></div><div class="b" style="height:80%"></div><div class="b" style="height:82%"></div><div class="b" style="height:76%"></div><div class="b" style="height:70%"></div><div class="b" style="height:72%"></div><div class="b hi" style="height:64%"></div></div>
+    <div class="delta"><span class="down">↓ 1.4 lb</span> in 14 days</div>
+  </div>
+  <div class="card">
+    <div class="lbl"><svg viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><circle cx="17" cy="14" r="1.5"/></svg>Spend</div>
+    <div class="big">$1,284</div>
+    <div class="spark"><div class="b" style="height:30%"></div><div class="b" style="height:48%"></div><div class="b" style="height:55%"></div><div class="b" style="height:62%"></div><div class="b" style="height:68%"></div><div class="b hi" style="height:70%"></div><div class="b" style="height:68%"></div></div>
+    <div class="delta">68 % of monthly budget</div>
+  </div>
+</div></div></body></html>
