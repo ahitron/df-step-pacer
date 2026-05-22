@@ -3,31 +3,49 @@
 ## Running the app
 
 ```bash
-pnpm install   # first time
-pnpm dev       # dev server at http://localhost:3000
-pnpm build     # production build
+pnpm install        # first time
+pnpm dev            # dev server at http://localhost:5173
+pnpm build          # tsc + vite build
+pnpm lint           # eslint
+firebase deploy --only hosting   # deploy (fill in .firebaserc project ID first)
 ```
 
 ## Architecture
 
-Two screens, no router. `src/App.tsx` holds all state and routes via a `screen` string (`'home' | 'config'`). State is a single `AppState` object persisted as one JSON blob under the `df-step-pacer` localStorage key.
+Two screens with react-router-dom. State is a single `AppState` object persisted as one JSON blob under the `df-step-pacer` localStorage key. Theme is a React context.
 
 ```
 src/
-  App.tsx                  ← state management, screen routing
-  lib/
-    pacing.ts              ← compileFn, validateExpression, safeEval
-    storage.ts             ← loadState / saveState, AppState type
-    time.ts                ← getTargetSteps, formatTime
+  App.tsx                        ← providers (ThemeContext, AppStateContext) + BrowserRouter + Routes
+  contexts/
+    ThemeContext.tsx              ← dark/light toggle; sets data-theme on <html>
+    AppStateContext.tsx           ← AppState + update; localStorage persistence
   components/
-    TabBar.tsx             ← bottom nav
-    ThemeToggle.tsx        ← flips data-theme on <html>
-    CurvePreview.tsx       ← SVG curve visualization
-    FunctionEditor.tsx     ← add/edit modal (bottom sheet)
+    Layout.tsx                   ← Outlet wrapper + TabBar
+    TabBar.tsx                   ← bottom nav (NavLink-based)
+    ThemeToggle.tsx              ← consumes useThemeContext()
+    CurvePreview.tsx             ← SVG curve visualization
+    FunctionEditor.tsx           ← add/edit modal (bottom sheet)
   screens/
-    HomeScreen.tsx         ← goal input, pacing selector, target display
-    ConfigScreen.tsx       ← time window, pacing function list
+    HomeScreen.tsx               ← goal input, pacing selector, target display
+    ConfigScreen.tsx             ← time window, pacing function list
+  lib/
+    pacing.ts                    ← compileFn, validateExpression, safeEval
+    storage.ts                   ← loadState / saveState, AppState type
+    time.ts                      ← getTargetSteps, formatTime
+  sw.ts                          ← Workbox precaching + asset caching
 ```
+
+Routes: `/` → `HomeScreen`, `/config` → `ConfigScreen` (both wrapped by `Layout`).
+
+## Stack
+
+- **React 19 + TypeScript**, built with **Vite 8**
+- **Tailwind CSS v4** via `@tailwindcss/vite` (no `tailwind.config.ts` — CSS-first config)
+- **react-router-dom v7** for routing
+- **lucide-react** for all icons (outline, 1.5px stroke, 18/20px)
+- **pnpm** as package manager
+- **Firebase Hosting** (SPA, manual `firebase deploy`)
 
 ## Key invariants
 
@@ -40,7 +58,7 @@ src/
 
 ## Design system
 
-Tokens live in `src/df-tokens.css` (copied from `.claude/skills/data-forward-design/colors_and_type.css`). Always use CSS custom properties — never hardcode hex values.
+Tokens live in `src/df-tokens.css` (canonical source shared with df-weight-tracker). Always use CSS custom properties — never hardcode hex values.
 
 ```css
 /* colors */
@@ -59,14 +77,15 @@ Tokens live in `src/df-tokens.css` (copied from `.claude/skills/data-forward-des
 --df-space-1 (4px) … --df-space-20 (80px)
 
 /* radii */
---df-radius-sm (6px), --df-radius-md (10px), --df-radius-xl (20px)
+--df-radius-xs (4px), --df-radius-sm (6px), --df-radius-md (10px),
+--df-radius-xl (20px), --df-radius-2xl (28px)
 ```
 
-Typography classes (`.df-h4`, `.df-eyebrow`, `.df-label`, `.df-caption`, `.df-body`, `.df-numeric-display`) are defined in `src/df-tokens.css` and available globally.
+Typography classes defined in `src/df-tokens.css`: `.df-display`, `.df-h1`–`.df-h4`, `.df-eyebrow`, `.df-body`, `.df-body-lg`, `.df-small`, `.df-caption`, `.df-label`, `.df-numeric`, `.df-numeric-display`, `.df-mono`, `.df-code`.
 
 Component CSS classes (`.df-input`, `.df-select`, `.df-btn-primary`, `.df-btn-ghost`, `.df-sheet-enter`) are defined in `src/index.css` under `@layer components`.
 
-Tailwind is extended with `text-df-clay`, `bg-df-surface`, `border-df-line`, `rounded-df-md`, etc. Use these for layout; use inline `style={{ color: 'var(--df-clay)' }}` for one-offs.
+Tailwind v4 theme tokens (`bg-df-surface`, `border-df-line`, `rounded-df-md`, etc.) are mapped in the `@theme inline` block of `src/index.css`.
 
 Dark mode: set `data-theme="dark"` on `<html>`. Every `--df-*` token swaps automatically.
 

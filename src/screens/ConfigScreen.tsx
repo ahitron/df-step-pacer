@@ -1,40 +1,36 @@
-import { useState } from 'react'
-import { Pencil, Trash2, Plus } from 'lucide-react'
-import { ThemeToggle } from '../components/ThemeToggle'
-import { FunctionEditor } from '../components/FunctionEditor'
-import { LINEAR_FN } from '../lib/pacing'
-import type { PacingFn } from '../lib/pacing'
-import type { AppState } from '../lib/storage'
+import { useState } from 'react';
+import { Pencil, Trash2, Plus } from 'lucide-react';
+import { ThemeToggle } from '../components/ThemeToggle';
+import { FunctionEditor } from '../components/FunctionEditor';
+import { LINEAR_FN } from '../lib/pacing';
+import type { PacingFn } from '../lib/pacing';
+import { useAppState } from '../contexts/AppStateContext';
 
-interface ConfigScreenProps {
-  state: AppState
-  onUpdate: (partial: Partial<AppState>) => void
-}
+export function ConfigScreen() {
+  const { state, update } = useAppState();
+  const [editingFn, setEditingFn] = useState<PacingFn | null>(null);
+  const [isAdding, setIsAdding] = useState(false);
 
-export function ConfigScreen({ state, onUpdate }: ConfigScreenProps) {
-  const [editingFn, setEditingFn] = useState<PacingFn | null>(null)
-  const [isAdding, setIsAdding] = useState(false)
-
-  const allFns = [LINEAR_FN, ...state.customFns]
+  const allFns = [LINEAR_FN, ...state.customFns];
 
   const handleSaveFn = (fn: PacingFn) => {
-    const exists = state.customFns.some(f => f.id === fn.id)
+    const exists = state.customFns.some(f => f.id === fn.id);
     const nextFns = exists
       ? state.customFns.map(f => (f.id === fn.id ? fn : f))
-      : [...state.customFns, fn]
-    onUpdate({ customFns: nextFns })
-    setEditingFn(null)
-    setIsAdding(false)
-  }
+      : [...state.customFns, fn];
+    update({ customFns: nextFns });
+    setEditingFn(null);
+    setIsAdding(false);
+  };
 
   const handleDelete = (id: string) => {
-    const nextFns = state.customFns.filter(f => f.id !== id)
-    const update: Partial<AppState> = { customFns: nextFns }
-    if (state.selectedFnId === id) update.selectedFnId = 'linear'
-    onUpdate(update)
-  }
+    const nextFns = state.customFns.filter(f => f.id !== id);
+    const patch: Partial<typeof state> = { customFns: nextFns };
+    if (state.selectedFnId === id) patch.selectedFnId = 'linear';
+    update(patch);
+  };
 
-  const showEditor = editingFn !== null || isAdding
+  const showEditor = editingFn !== null || isAdding;
 
   return (
     <div className="flex flex-col min-h-full px-6 pt-5 pb-8 max-w-lg mx-auto w-full">
@@ -59,7 +55,7 @@ export function ConfigScreen({ state, onUpdate }: ConfigScreenProps) {
               id="start-time"
               type="time"
               value={state.startTime}
-              onChange={e => onUpdate({ startTime: e.target.value })}
+              onChange={e => update({ startTime: e.target.value })}
               className="df-input"
               style={{ width: 'auto', flex: '0 0 auto' }}
             />
@@ -73,7 +69,7 @@ export function ConfigScreen({ state, onUpdate }: ConfigScreenProps) {
               id="end-time"
               type="time"
               value={state.endTime}
-              onChange={e => onUpdate({ endTime: e.target.value })}
+              onChange={e => update({ endTime: e.target.value })}
               className="df-input"
               style={{ width: 'auto', flex: '0 0 auto' }}
             />
@@ -116,12 +112,12 @@ export function ConfigScreen({ state, onUpdate }: ConfigScreenProps) {
                       className="p-1.5 rounded-df-sm transition-colors duration-100"
                       style={{ color: 'var(--df-ink-3)' }}
                       onMouseEnter={e => {
-                        ;(e.currentTarget as HTMLButtonElement).style.color = 'var(--df-ink)'
-                        ;(e.currentTarget as HTMLButtonElement).style.background = 'var(--df-surface-2)'
+                        (e.currentTarget as HTMLButtonElement).style.color = 'var(--df-ink)';
+                        (e.currentTarget as HTMLButtonElement).style.background = 'var(--df-surface-2)';
                       }}
                       onMouseLeave={e => {
-                        ;(e.currentTarget as HTMLButtonElement).style.color = 'var(--df-ink-3)'
-                        ;(e.currentTarget as HTMLButtonElement).style.background = 'transparent'
+                        (e.currentTarget as HTMLButtonElement).style.color = 'var(--df-ink-3)';
+                        (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
                       }}
                       aria-label={`Edit ${fn.name}`}
                     >
@@ -132,12 +128,12 @@ export function ConfigScreen({ state, onUpdate }: ConfigScreenProps) {
                       className="p-1.5 rounded-df-sm transition-colors duration-100"
                       style={{ color: 'var(--df-ink-3)' }}
                       onMouseEnter={e => {
-                        ;(e.currentTarget as HTMLButtonElement).style.color = 'var(--df-danger)'
-                        ;(e.currentTarget as HTMLButtonElement).style.background = 'var(--df-surface-2)'
+                        (e.currentTarget as HTMLButtonElement).style.color = 'var(--df-danger)';
+                        (e.currentTarget as HTMLButtonElement).style.background = 'var(--df-surface-2)';
                       }}
                       onMouseLeave={e => {
-                        ;(e.currentTarget as HTMLButtonElement).style.color = 'var(--df-ink-3)'
-                        ;(e.currentTarget as HTMLButtonElement).style.background = 'transparent'
+                        (e.currentTarget as HTMLButtonElement).style.color = 'var(--df-ink-3)';
+                        (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
                       }}
                       aria-label={`Delete ${fn.name}`}
                     >
@@ -165,11 +161,11 @@ export function ConfigScreen({ state, onUpdate }: ConfigScreenProps) {
           fn={editingFn ?? undefined}
           onSave={handleSaveFn}
           onClose={() => {
-            setEditingFn(null)
-            setIsAdding(false)
+            setEditingFn(null);
+            setIsAdding(false);
           }}
         />
       )}
     </div>
-  )
+  );
 }

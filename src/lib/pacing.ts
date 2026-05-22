@@ -11,7 +11,6 @@ export const LINEAR_FN: PacingFn = {
 }
 
 export function compileFn(expression: string): (t: number) => number {
-  // eslint-disable-next-line no-new-func
   return new Function('t', `"use strict"; return (${expression})`) as (t: number) => number
 }
 
