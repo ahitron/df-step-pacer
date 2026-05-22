@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "df-step-pacer"
+    "default": "df-step-pacer",
+    "production": "df-step-pacer"
   },
   "targets": {},
   "etags": {}
