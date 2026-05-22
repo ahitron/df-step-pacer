@@ -178,6 +178,14 @@
   color: var(--df-ink);
 }
 
+.df-section-title {
+  font-family: var(--df-font-sans);
+  font-weight: var(--df-weight-medium);
+  font-size:   var(--df-text-md);
+  line-height: var(--df-leading-snug);
+  color: var(--df-ink);
+}
+
 .df-eyebrow {
   font-family: var(--df-font-sans);
   font-weight: var(--df-weight-medium);

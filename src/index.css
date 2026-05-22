@@ -51,6 +51,7 @@
   /* ---- Form inputs ---- */
   .df-input {
     width: 100%;
+    min-height: 2.25rem;
     padding: var(--df-space-2) var(--df-space-3);
     border: 1px solid var(--df-line-strong);
     border-radius: var(--df-radius-sm);
@@ -80,6 +81,7 @@
   /* ---- Select ---- */
   .df-select {
     width: 100%;
+    min-height: 2.25rem;
     padding: var(--df-space-2) 2.5rem var(--df-space-2) var(--df-space-3);
     border: 1px solid var(--df-line-strong);
     border-radius: var(--df-radius-sm);
