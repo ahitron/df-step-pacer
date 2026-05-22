@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Pencil, Trash2, Plus } from 'lucide-react';
-import { ThemeToggle } from '../components/ThemeToggle';
 import { FunctionEditor } from '../components/FunctionEditor';
 import { LINEAR_FN } from '../lib/pacing';
 import type { PacingFn } from '../lib/pacing';
@@ -33,13 +32,7 @@ export function ConfigScreen() {
   const showEditor = editingFn !== null || isAdding;
 
   return (
-    <div className="flex flex-col min-h-full px-6 pt-5 pb-8 max-w-lg mx-auto w-full">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="df-h4">Settings</h1>
-        <ThemeToggle />
-      </div>
-
+    <div className="flex flex-col min-h-full px-4 pt-5 pb-8 max-w-lg mx-auto w-full">
       {/* Active window */}
       <section className="mb-8">
         <h2 className="df-eyebrow mb-3">Active window</h2>
