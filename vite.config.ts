@@ -9,8 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'apple-touch-icon-180x180.png'],
       manifest: {
-        name: 'Step pacer',
-        short_name: 'Step pacer',
+        name: 'Step Pacer',
+        short_name: 'Step Pacer',
         description: 'Pace your daily step goal throughout the day.',
         theme_color: '#B8593A',
         background_color: '#F5F1EA',

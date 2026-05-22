@@ -38,7 +38,7 @@ export function HomeScreen({ state, onUpdate }: HomeScreenProps) {
     <div className="flex flex-col min-h-full px-6 pt-5 pb-8 max-w-lg mx-auto w-full">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
-        <h1 className="df-h4">Step pacer</h1>
+        <h1 className="df-h4">Step Pacer</h1>
         <ThemeToggle />
       </div>
 
