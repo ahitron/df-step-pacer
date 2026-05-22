@@ -1,8 +1,35 @@
 @import './df-tokens.css';
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme inline {
+  /* Fonts */
+  --font-sans: var(--df-font-sans);
+  --font-mono: var(--df-font-mono);
+
+  /* Colors — mapped so bg-df-*, text-df-*, border-df-* utilities work */
+  --color-df-canvas:      var(--df-canvas);
+  --color-df-surface:     var(--df-surface);
+  --color-df-surface-2:   var(--df-surface-2);
+  --color-df-ink:         var(--df-ink);
+  --color-df-ink-2:       var(--df-ink-2);
+  --color-df-ink-3:       var(--df-ink-3);
+  --color-df-ink-4:       var(--df-ink-4);
+  --color-df-clay:        var(--df-clay);
+  --color-df-clay-soft:   var(--df-clay-soft);
+  --color-df-clay-tint:   var(--df-clay-tint);
+  --color-df-line:        var(--df-line);
+  --color-df-line-strong: var(--df-line-strong);
+  --color-df-danger:      var(--df-danger);
+  --color-df-success:     var(--df-success);
+
+  /* Radii — mapped so rounded-df-* utilities work */
+  --radius-df-xs:   var(--df-radius-xs);
+  --radius-df-sm:   var(--df-radius-sm);
+  --radius-df-md:   var(--df-radius-md);
+  --radius-df-lg:   var(--df-radius-lg);
+  --radius-df-xl:   var(--df-radius-xl);
+  --radius-df-2xl:  var(--df-radius-2xl);
+}
 
 @layer base {
   html,

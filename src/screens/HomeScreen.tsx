@@ -1,38 +1,35 @@
-import { useState, useEffect, useCallback } from 'react'
-import { ChevronDown } from 'lucide-react'
-import { ThemeToggle } from '../components/ThemeToggle'
-import { getTargetSteps, formatTime, getCurrentTimeDisplay } from '../lib/time'
-import { safeEval, LINEAR_FN } from '../lib/pacing'
-import type { AppState } from '../lib/storage'
+import { useState, useEffect, useCallback } from 'react';
+import { ChevronDown } from 'lucide-react';
+import { ThemeToggle } from '../components/ThemeToggle';
+import { getTargetSteps, formatTime, getCurrentTimeDisplay } from '../lib/time';
+import { safeEval, LINEAR_FN } from '../lib/pacing';
+import { useAppState } from '../contexts/AppStateContext';
 
-interface HomeScreenProps {
-  state: AppState
-  onUpdate: (partial: Partial<AppState>) => void
-}
+export function HomeScreen() {
+  const { state, update } = useAppState();
+  const [targetSteps, setTargetSteps] = useState(0);
+  const [currentTime, setCurrentTime] = useState('');
 
-export function HomeScreen({ state, onUpdate }: HomeScreenProps) {
-  const [targetSteps, setTargetSteps] = useState(0)
-  const [currentTime, setCurrentTime] = useState('')
-
-  const allFns = [LINEAR_FN, ...state.customFns]
-  const selectedFn = allFns.find(f => f.id === state.selectedFnId) ?? LINEAR_FN
+  const allFns = [LINEAR_FN, ...state.customFns];
+  const selectedFn = allFns.find(f => f.id === state.selectedFnId) ?? LINEAR_FN;
 
   const recalculate = useCallback(() => {
-    const evaluate = (t: number) => safeEval(selectedFn.expression, t)
-    setTargetSteps(getTargetSteps(state.dailyGoal, state.startTime, state.endTime, evaluate))
-    setCurrentTime(getCurrentTimeDisplay())
-  }, [state.dailyGoal, state.startTime, state.endTime, selectedFn.expression])
+    const evaluate = (t: number) => safeEval(selectedFn.expression, t);
+    setTargetSteps(getTargetSteps(state.dailyGoal, state.startTime, state.endTime, evaluate));
+    setCurrentTime(getCurrentTimeDisplay());
+  }, [state.dailyGoal, state.startTime, state.endTime, selectedFn.expression]);
 
   useEffect(() => {
-    recalculate()
-    const id = setInterval(recalculate, 60_000)
-    return () => clearInterval(id)
-  }, [recalculate])
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    recalculate();
+    const id = setInterval(recalculate, 60_000);
+    return () => clearInterval(id);
+  }, [recalculate]);
 
   const handleGoalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const v = parseInt(e.target.value, 10)
-    if (!isNaN(v) && v > 0) onUpdate({ dailyGoal: v })
-  }
+    const v = parseInt(e.target.value, 10);
+    if (!isNaN(v) && v > 0) update({ dailyGoal: v });
+  };
 
   return (
     <div className="flex flex-col min-h-full px-6 pt-5 pb-8 max-w-lg mx-auto w-full">
@@ -67,7 +64,7 @@ export function HomeScreen({ state, onUpdate }: HomeScreenProps) {
           <select
             id="pacing"
             value={state.selectedFnId}
-            onChange={e => onUpdate({ selectedFnId: e.target.value })}
+            onChange={e => update({ selectedFnId: e.target.value })}
             className="df-select"
           >
             {allFns.map(fn => (
@@ -108,5 +105,5 @@ export function HomeScreen({ state, onUpdate }: HomeScreenProps) {
         </p>
       </div>
     </div>
-  )
+  );
 }
