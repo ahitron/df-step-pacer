@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { ThemeToggle } from '../components/ThemeToggle';
 import { getTargetSteps, formatTime, getCurrentTimeDisplay } from '../lib/time';
 import { safeEval, LINEAR_FN } from '../lib/pacing';
 import { useAppState } from '../contexts/AppStateContext';
@@ -32,13 +31,7 @@ export function HomeScreen() {
   };
 
   return (
-    <div className="flex flex-col min-h-full px-6 pt-5 pb-8 max-w-lg mx-auto w-full">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="df-h4">Step Pacer</h1>
-        <ThemeToggle />
-      </div>
-
+    <div className="flex flex-col min-h-full px-4 pt-5 pb-8 max-w-lg mx-auto w-full">
       {/* Goal input */}
       <div className="flex flex-col gap-2 mb-5">
         <label className="df-label" htmlFor="goal">
