@@ -25,9 +25,21 @@ export function HomeScreen() {
     return () => clearInterval(id);
   }, [recalculate]);
 
+  const [goalDraft, setGoalDraft] = useState<string>(String(state.dailyGoal));
+
+  useEffect(() => {
+    setGoalDraft(String(state.dailyGoal));
+  }, [state.dailyGoal]);
+
   const handleGoalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setGoalDraft(e.target.value);
     const v = parseInt(e.target.value, 10);
     if (!isNaN(v) && v > 0) update({ dailyGoal: v });
+  };
+
+  const handleGoalBlur = () => {
+    const v = parseInt(goalDraft, 10);
+    if (isNaN(v) || v <= 0) setGoalDraft(String(state.dailyGoal));
   };
 
   return (
@@ -42,8 +54,9 @@ export function HomeScreen() {
           type="number"
           min={1}
           step={500}
-          value={state.dailyGoal}
+          value={goalDraft}
           onChange={handleGoalChange}
+          onBlur={handleGoalBlur}
           className="df-input"
         />
       </div>
