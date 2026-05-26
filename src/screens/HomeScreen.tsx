@@ -27,10 +27,6 @@ export function HomeScreen() {
 
   const [goalDraft, setGoalDraft] = useState<string>(String(state.dailyGoal));
 
-  useEffect(() => {
-    setGoalDraft(String(state.dailyGoal));
-  }, [state.dailyGoal]);
-
   const handleGoalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setGoalDraft(e.target.value);
     const v = parseInt(e.target.value, 10);
