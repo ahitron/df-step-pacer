@@ -49,7 +49,7 @@ export function FunctionEditor({ fn, onSave, onClose }: FunctionEditorProps) {
 
   return (
     <div
-      className="fixed inset-0 z-20 flex items-end justify-center"
+      className="fixed inset-0 z-50 flex items-end justify-center"
       style={{ background: 'var(--df-overlay)' }}
       onClick={handleBackdropClick}
     >
